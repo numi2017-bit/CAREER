@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Executive Intelligence Hub: Culinary Class Wars S2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&family=Outfit:wght@900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #0d0d0f;
+            color: #f1f2f6;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #000;
+            border-right: 1px solid #222;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: 300px;
+            padding: 60px 5%;
+            max-width: 1400px;
+        }
+
+        .card {
+            background: #16171d;
+            border: 1px solid #2a2a2e;
+            border-radius: 28px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-card {
+            border-left: 8px solid #e50914;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 18px 30px;
+            color: #777;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            background: #1a1a1e;
+            border-right: 5px solid #e50914;
+        }
+
+        .stat-huge {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .text-red-primary {
+            color: #e50914;
+        }
+
+        .methodology {
+            font-size: 11px;
+            color: #555;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-action {
+            background: #e50914;
+            color: #fff;
+            padding: 22px 40px;
+            border-radius: 16px;
+            font-weight: 900;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-action:hover {
+            background: #ff0000;
+            transform: scale(1.02);
+        }
+
+        .deep-border {
+            border-top: 1px solid #2a2a2e;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-custom th {
+            text-align: left;
+            color: #555;
+            padding-bottom: 15px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .table-custom td {
+            padding: 15px 0;
+            border-top: 1px solid #222;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="flex">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar flex flex-col py-12">
+        <div class="px-10 mb-20 flex items-center gap-4">
+            <div class="w-12 h-12 bg-[#e50914] rounded-2xl flex items-center justify-center shadow-xl">
+                <span class="text-3xl font-black text-white italic">N</span>
+            </div>
+            <div>
+                <p class="text-xl font-black tracking-tighter text-white">STRATEGY</p>
+                <p class="text-[10px] text-gray-600 font-black tracking-widest uppercase italic">Intelligence Hub</p>
+            </div>
+        </div>
+
+        <div class="flex-1 px-4 space-y-2">
+            <a href="#overview" class="nav-link active">EXECUTIVE SUMMARY</a>
+            <a href="#performance" class="nav-link">시장 성과 정밀 분석</a>
+            <a href="#choi-deep" class="nav-link">최강록: 슈퍼 IP 자산가치</a>
+            <a href="#risk-deep" class="nav-link">위기 진단: 2억 누수의 근거</a>
+            <a href="#execution" class="nav-link">전략 로드맵 & 실행</a>
+        </div>
+
+        <div class="px-10 mt-auto">
+            <div class="p-6 bg-[#1a1a1e] rounded-2xl border border-[#2a2a2e]">
+                <p class="methodology mb-2">Defense Goal</p>
+                <p class="text-3xl font-black text-white">2.1억 ₩</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="main-content flex-1">
+
+        <!-- SECTION: EXECUTIVE SUMMARY -->
+        <section id="overview" class="mb-32">
+            <header class="mb-20">
+                <p class="methodology mb-3 text-red-primary">Professional Strategy Report v3.1</p>
+                <h1 style="font-family: 'Outfit', sans-serif;"
+                    class="text-7xl font-black text-white mb-8 leading-none tracking-tighter">
+                    THE POWER OF <br><span class="text-red-primary">LOCK-IN</span>
+                </h1>
+                <p class="text-3xl text-gray-500 font-bold leading-tight">
+                    방영 전 8위 → 방영 후 1위로 반등시킨 구원 투수 <br>
+                    <span class="text-white">'흑백요리사'가 증명한 210M ₩의 구독 잔류 가치</span>
+                </p>
+            </header>
+
+            <div class="grid grid-cols-2 gap-10">
+                <div class="card highlight-card">
+                    <p class="methodology mb-4">Core Index 01</p>
+                    <h3 class="text-3xl font-black mb-6">참여의 질(Quality of engagement)</h3>
+                    <p class="text-gray-400 text-xl leading-relaxed">
+                        시즌 2의 진짜 성과는 숫자가 아닙니다. <strong>조회수 1M 당 댓글 생성 밀도가 시즌 1(271개) 대비 1.82배(494개) 성장</strong>했습니다. 이는
+                        일회성 시청자를 '적극적 여론 형성자'로 체질 개선하는 데 성공했음을 시사합니다.
+                    </p>
+                </div>
+                <div class="card">
+                    <p class="methodology mb-4">Core Index 02</p>
+                    <h3 class="text-3xl font-black mb-6">해지 유도 페인포인트</h3>
+                    <p class="text-gray-400 text-xl leading-relaxed">
+                        분석된 부정 언급 8.4K 중 <strong>51.5%가 '출연진 인성 및 검증 부실'</strong>에 집중되어 있습니다. 제작진의 조작 논란(23.2%)보다 개인 IP의
+                        리스크 전이가 리텐션에 더욱 치명적인 영향을 미칩니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: 시장 성과 정밀 분석 -->
+        <section id="performance" class="mb-32 scroll-mt-20">
+            <h2 class="text-5xl font-black mb-16 italic uppercase"><span class="text-gray-800 mr-4">01</span>
+                Performance Metrics</h2>
+
+            <div class="grid grid-cols-4 gap-6 mb-12">
+                <div class="card p-10 text-center">
+                    <p class="methodology mb-2">Market Share</p>
+                    <div class="stat-huge">35%</div>
+                    <p class="text-xs text-red-500 font-bold mt-4">+12% V-Shape Recovery</p>
+                </div>
+                <div class="card p-10 text-center border-emerald-900/50">
+                    <p class="methodology mb-2">Eng Density</p>
+                    <div class="stat-huge text-blue-500">1.82x</div>
+                    <p class="text-xs text-gray-500 font-bold mt-4">vs Season 1 Avg</p>
+                </div>
+                <div class="card p-10 text-center border-red-900/50">
+                    <p class="methodology mb-2">At-Risk Fans</p>
+                    <div class="stat-huge text-white">4,356</div>
+                    <p class="text-xs text-red-500 font-bold mt-4">Critical Churn Warning</p>
+                </div>
+                <div class="card p-10 text-center">
+                    <p class="methodology mb-2">ROI Value</p>
+                    <div class="stat-huge text-green-500">2.1억</div>
+                    <p class="text-xs text-gray-500 font-bold mt-4">Annual Protection</p>
+                </div>
+            </div>
+
+            <div class="card h-[550px] p-12">
+                <div class="flex justify-between items-start mb-10">
+                    <div>
+                        <h3 class="text-2xl font-black mb-2">브랜드 관심도 변화 추이 (V자 반등의 정점)</h3>
+                        <p class="text-xs text-gray-500 font-bold italic">Source: Naver Search Trend & Sentiment
+                            Analysis Filter</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="px-4 py-2 bg-red-950/20 text-red-500 text-[10px] font-black rounded-lg">LIVE
+                            DATA</span>
+                    </div>
+                </div>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </section>
+
+        <!-- SECTION: 최강록 IP 분석 -->
+        <section id="choi-deep" class="mb-32 scroll-mt-20">
+            <h2 class="text-5xl font-black mb-16 italic uppercase"><span class="text-gray-800 mr-4">02</span> Super IP:
+                Choi Kang-rok Case Study</h2>
+
+            <div class="grid grid-cols-12 gap-8 mb-10">
+                <div class="col-span-12 lg:col-span-5 card bg-gradient-to-br from-[#1a1c23] to-[#000]">
+                    <h3 class="text-2xl font-black mb-10 text-blue-500">데이터가 증명하는 '화력'</h3>
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between items-end mb-4"><span
+                                    class="text-xs font-bold text-gray-500 uppercase tracking-widest">Comment
+                                    Interaction Rate</span><span class="text-3xl font-black">0.057%</span></div>
+                            <div class="w-full bg-gray-900 h-3 rounded-full">
+                                <div class="bg-blue-600 h-full w-full shadow-[0_0_10px_#2563eb]"></div>
+                            </div>
+                            <p
+                                class="text-[10px] text-gray-600 mt-4 leading-relaxed font-bold italic border-l-2 border-gray-800 pl-4">
+                                "안성재(0.021%), 백종원(0.039%)과 같은 매머드급 IP를 제치고 <br>전체 출연자 중 '팬이 직접 행동하게 만드는 힘' 1위 기록"
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-end mb-4"><span
+                                    class="text-xs font-bold text-gray-500 uppercase tracking-widest">Viral Density
+                                    (Meme Momentum)</span><span class="text-3xl font-black">7.2x</span></div>
+                            <div class="w-full bg-gray-900 h-3 rounded-full">
+                                <div class="bg-red-600 h-full w-[85%]"></div>
+                            </div>
+                            <p
+                                class="text-[10px] text-gray-600 mt-4 leading-relaxed font-bold italic border-l-2 border-gray-800 pl-4">
+                                "일반 셰프 대비 SNS로 확산되는 밈(Meme) 생성 속도가 7배 상회. <br>마케팅 비용 투입 대비 최대의 트래픽 효율 달성"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-12 lg:col-span-7 card p-12">
+                    <h3
+                        class="text-2xl font-black mb-10 border-b border-gray-800 pb-6 uppercase italic tracking-tighter">
+                        Strategic IP Value Analysis</h3>
+                    <div class="grid grid-cols-2 gap-x-16 gap-y-12">
+                        <div>
+                            <p class="text-red-500 font-black text-xl mb-3">① 조리보이 (Meme Power)</p>
+                            <p class="text-sm text-gray-400 leading-relaxed font-bold">
+                                팬덤 내부에서 자발적으로 형성된 애칭. 광고 비용 없이 팬들이 스스로 콘텐츠를 생산하게 만드는 <strong>'무한 복제 엔진'</strong>의 역할.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-white font-black text-xl mb-3">② 바질을 곁들인... (Brand Identity)</p>
+                            <p class="text-sm text-gray-400 leading-relaxed font-bold">
+                                어떠한 상황에서도 자신의 색을 잃지 않는 장인 정신의 상징. 예능적 자극을 뛰어넘는 <strong>'캐릭터적 신뢰감'</strong>을 부여함.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-white font-black text-xl mb-3">③ 나야 들기름 (Interactivity)</p>
+                            <p class="text-sm text-gray-400 leading-relaxed font-bold">
+                                유행어를 넘어 팬덤간의 '놀이 문화(Inter-language)' 형성. <strong>넷플릭스 앱 내 체류 시간</strong>을 비약적으로 높이는 매개체.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-white font-black text-xl mb-3">④ 만화책 서사 (Humanity)</p>
+                            <p class="text-sm text-gray-400 leading-relaxed font-bold">
+                                완벽한 천재보다 '독특하게 성장한 인간상'에 열광하는 최신 트렌드 반영. 이탈 위험군을 잡는 강력한 <strong>심리적 락인(Lock-in)</strong>
+                                요소.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: 위기 진단 보고 -->
+        <section id="risk-deep" class="mb-32 scroll-mt-20">
+            <h2 class="text-5xl font-black mb-16 italic uppercase text-red-primary"><span
+                    class="text-gray-800 mr-4">03</span> Risk & Churn Intelligence</h2>
+
+            <div class="grid grid-cols-12 gap-10 mb-12">
+                <div class="col-span-7 card h-[500px] p-12">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase mb-10 tracking-widest">부정 언급 키워드 상관관계 (NLP 분석)
+                    </h3>
+                    <canvas id="riskChart"></canvas>
+                </div>
+                <div class="col-span-5 card p-12 bg-red-950/10 border-l-8 border-red-600">
+                    <p class="methodology mb-6 text-red-primary tracking-widest">Scandal Timeline Impact</p>
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>Scandal Event</th>
+                                <th class="text-right">Brand Damage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>트리플스타 인성 논란 (S1)</td>
+                                <td class="text-right text-3xl font-black">95%</td>
+                            </tr>
+                            <tr>
+                                <td>이영숙 채무 불이행 (S1)</td>
+                                <td class="text-right text-3xl font-black text-red-500">88%</td>
+                            </tr>
+                            <tr>
+                                <td>유비빔 과거 자진 고백 (S2)</td>
+                                <td class="text-right text-3xl font-black text-gray-400">75%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="deep-border">
+                        <p class="text-sm font-bold text-gray-300 italic mb-4">"위험 지표 해석 (Interpretation)"</p>
+                        <p class="text-xs text-gray-500 leading-relaxed font-bold">
+                            시즌 1 출연자들의 사후 논란이 시즌 2의 <strong>[검증 시스템 신뢰도]</strong>를 직접적으로 훼손하고 있습니다. 뉴스 댓글 8.4K 분석 결과, 이슈
+                            발생 시 즉시 해지를 언급하는 유저 빈도가 4.4배 급증했습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculation Logic -->
+            <div class="card p-12 border-t-8 border-emerald-600 bg-[#0e0f14]">
+                <h3 class="text-3xl font-black mb-10 italic">경제적 가치 산출 로직 (Valuation Methodology)</h3>
+                <div class="grid grid-cols-2 gap-20">
+                    <div>
+                        <p class="text-xs font-black text-emerald-500 uppercase tracking-widest mb-6 underline">💰 미디어
+                            가치 (Media Value Factor)</p>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center"><span
+                                    class="text-sm font-bold text-gray-400">안성재 셰프 기여분</span><span
+                                    class="text-xl font-bold">약 35억 ₩</span></div>
+                            <div class="flex justify-between items-center"><span
+                                    class="text-sm font-bold text-gray-400">백종원 셰프 기여분</span><span
+                                    class="text-xl font-bold">약 22억 ₩</span></div>
+                            <p class="text-[10px] text-gray-600 italic border-t border-gray-900 pt-4 mt-6">
+                                * 산출 기준: 총 조회수 x 미디어 평균 가치(CPV 30원) 반영 수치
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black text-red-500 uppercase tracking-widest mb-6 underline">🛡️ 구독 방어 효과
+                            (Retention Defense Factor)</p>
+                        <div class="bg-black/50 p-8 rounded-3xl border border-red-950/50">
+                            <div class="flex justify-between items-end mb-4"><span
+                                    class="text-xs font-bold text-gray-400 uppercase">Annual Defense ROI</span><span
+                                    class="text-4xl font-black text-red- primary">2.1억 ₩</span></div>
+                            <p class="text-[11px] text-gray-500 leading-relaxed font-bold">
+                                (이탈 위험군 4,356명 x 넷플릭스 표준 요금제 13,500원 x 12개월 x 예상 방어율) <br>
+                                이탈 골든 타임을 지켰을 때 확보 가능한 <strong>확정적 기회 비용</strong>입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: 전략 로드맵 그라운드 룰 -->
+        <section id="execution" class="mb-20 scroll-mt-20">
+            <h2 class="text-5xl font-black mb-16 italic uppercase text-green-500"><span
+                    class="text-gray-800 mr-4">04</span> Strategic Roadmap v2.1</h2>
+
+            <div class="grid grid-cols-3 gap-8 mb-16">
+                <div class="card border-t-8 border-red-600">
+                    <h4 class="methodology mb-8 text-red-primary">Step 01. Defense</h4>
+                    <h3 class="text-2xl font-black mb-6 italic uppercase">식당 예약권 추첨제</h3>
+                    <p class="text-sm text-gray-400 font-bold leading-relaxed mb-8">
+                        구독료 저항(Price Churn) 해소를 위한 실무형 혜택. 넷플릭스 구독 증명 시 흑백요리사 스타 셰프 식당의 'Fast-track' 예약권 추첨권을 부여하여 구독 유지
+                        명분 제공.
+                    </p>
+                    <div class="p-4 bg-red-950/20 rounded-xl text-[10px] text-red-500 font-black">TARGET: PRICE
+                        RESISTANCE FANS</div>
+                </div>
+                <div class="card border-t-8 border-yellow-600">
+                    <h4 class="methodology mb-8 text-yellow-500">Step 02. Quality</h4>
+                    <h3 class="text-2xl font-black mb-6 italic uppercase">국민 심사단 (UX 참여)</h3>
+                    <p class="text-sm text-gray-400 font-bold leading-relaxed mb-8">
+                        제작 불신(Fairness Churn) 및 인성 리스크 해소 전략. 시즌 3 기획 단계부터 코어 팬덤 100인을 블라인드 심사단으로 모집하여 제작 공정성의 효능감 부여.
+                    </p>
+                    <div class="p-4 bg-yellow-900/20 rounded-xl text-[10px] text-yellow-500 font-black">TARGET:
+                        VALIDATION RISK BLOCK</div>
+                </div>
+                <div class="card border-t-8 border-blue-600">
+                    <h4 class="methodology mb-8 text-blue-500">Step 03. Expansion</h4>
+                    <h3 class="text-2xl font-black mb-6 italic uppercase">IP 스핀오프 세계관</h3>
+                    <p class="text-sm text-gray-400 font-bold leading-relaxed mb-8">
+                        위험군 4,356명 리텐션 극대화 전략. 최강록x임성근 조합의 '더블 엔진' 전용 리얼리티 콘텐츠를 배포하여 비수기 구독 이탈(Lapse) 원천 차단.
+                    </p>
+                    <div class="p-4 bg-blue-900/20 rounded-xl text-[10px] text-blue-500 font-black">TARGET:
+                        RE-ENGAGEMENT SEGMENT</div>
+                </div>
+            </div>
+
+            <div class="card p-12 text-center bg-gradient-to-r from-[#16171d] via-[#1a1b24] to-[#16171d]">
+                <h3 class="text-3xl font-black mb-8 italic uppercase tracking-tighter">Download Deep-dive Report</h3>
+                <p class="text-gray-500 mb-12 font-bold">11페이지의 구체적인 세부 데이터와 셰프별 화력 분석표가 포함된 PPTX 파일을 다운로드 하세요.</p>
+                <a href="netflix_strategy_report.pptx" class="btn-action shadow-2xl" download>
+                    📊 전략 리포트 최종본 (PPTX) 다운로드
+                </a>
+                <p class="mt-8 mythology font-black text-gray-600">Executive Access Only • Confidential</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Custom Charts Styling
+        Chart.defaults.color = '#555';
+        Chart.defaults.font.family = 'Pretendard';
+
+        // 1. Performance Chart (Expanded Logic)
+        const perfCtx = document.getElementById('performanceChart').getContext('2d');
+        const perfGradient = perfCtx.createLinearGradient(0, 0, 0, 400);
+        perfGradient.addColorStop(0, 'rgba(229, 9, 20, 0.4)');
+        perfGradient.addColorStop(1, 'rgba(229, 9, 20, 0)');
+
+        new Chart(perfCtx, {
+            type: 'line',
+            data: {
+                labels: ['9월 초(관심기벌)', 'S2 방영직전(8위)', '방영후(1위)', '팀 대항전(Peak)', '결승 피날레'],
+                datasets: [{
+                    label: 'Brand Impact Index',
+                    data: [38, 12, 98, 86, 94],
+                    borderColor: '#e50914',
+                    borderWidth: 6,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: perfGradient,
+                    pointRadius: 10,
+                    pointHoverRadius: 15,
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 4,
+                    pointBorderColor: '#e50914'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { weight: 'bold', size: 12 } } },
+                    y: { grid: { color: 'rgba(255,255,255,0.03)' }, min: 0, max: 100 }
+                }
+            }
+        });
+
+        // 2. Risk Chart (Enhanced Analysis)
+        new Chart(document.getElementById('riskChart'), {
+            type: 'bar',
+            data: {
+                labels: ['출연진 인성 리스크 (Moral)', '제작 공정성 불만 (Fairness)', '구독료 가성비 저항 (Price)', '단순 흥미 하락 (Others)'],
+                datasets: [{
+                    data: [51.5, 23.2, 15.3, 10.0],
+                    backgroundColor: ['#e50914', '#ffffff', '#333333', '#111111'],
+                    borderRadius: 15,
+                    barThickness: 45
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { display: false },
+                    y: { grid: { display: false }, ticks: { color: '#fff', font: { weight: 'bold', size: 15 } } }
+                }
+            }
+        });
+
+        // Sidebar active link logic
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) { current = section.getAttribute('id'); }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }
+            });
+        });
+    </script>
+</body>
+
+</html>

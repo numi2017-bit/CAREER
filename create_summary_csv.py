@@ -1,0 +1,18 @@
+
+import csv
+
+file_path = r"c:\Users\pc\Desktop\mypyproject\CAREER\salary_survey_summary.csv"
+
+data = [
+    ["출처 (Source)", "직무 구분", "세부 설명", "연봉 범위 (텍스트)", "최소 예상 (만원)", "최대 예상 (만원)"],
+    ["잡코리아", "마케팅 직군", "평균/상위 기업", "약 3,700 ~ 5,000대", "3700", "5000"],
+    ["사람인", "마케팅 직무", "연차 혼합 평균", "약 3,600 ~ 5,200", "3600", "5200"],
+    ["원티드", "마케팅", "채용 공고 기준", "4,000 ~ 5,000+", "4000", "5000"]
+]
+
+# Write with utf-8-sig for Excel compatibility
+with open(file_path, 'w', encoding='utf-8-sig', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerows(data)
+
+print(f"Created {file_path}")

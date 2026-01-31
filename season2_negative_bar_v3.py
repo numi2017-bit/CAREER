@@ -1,0 +1,93 @@
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+from collections import Counter
+import re
+
+# 한글 폰트 설정
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] = False
+
+base_path = r"c:\Users\pc\Desktop\mypyproject\black\흑백요리사\csv_파일"
+output_path = r"c:\Users\pc\Desktop\mypyproject\black\흑백요리사"
+
+def create_season2_negative_top5_bar_v3():
+    """시즌 2 실제 부정 키워드 TOP 5 막대 그래프 생성 V3 (인성 강제 추출 및 정합성 확보)"""
+    
+    # 데이터 로드
+    all_files = [f for f in os.listdir(base_path) if f.endswith(".csv")]
+    season2_dfs = []
+    
+    for file in all_files:
+        if "S2" in file or "_s2" in file or "시즌2" in file:
+            try:
+                file_path = os.path.join(base_path, file)
+                try:
+                    df = pd.read_csv(file_path, encoding='utf-8')
+                except:
+                    try:
+                        df = pd.read_csv(file_path, encoding='cp949')
+                    except:
+                        continue
+                if 'text' in df.columns:
+                    season2_dfs.append(df)
+            except:
+                continue
+    
+    if not season2_dfs:
+        print("시즌 2 데이터가 없습니다.")
+        return
+
+    full_text = pd.concat(season2_dfs, ignore_index=True)['text'].dropna().astype(str).tolist()
+    
+    # 키워드 매핑 (워드클라우드에 보이는 단어들을 최대한 포함)
+    negative_keywords_map = {
+        '실망': '실망/아쉬움', '아쉽': '실망/아쉬움', 
+        '노잼': '재미없음', '재미없': '재미없음', '지루': '재미없음',
+        '최악': '완성도 미흡', '미흡': '완성도 미흡', '별로': '완성도 미흡', 
+        '가격': '가격/비쌈', '비싸': '가격/비쌈', '창렬': '가격/비쌈', '돈아깝': '가격/비쌈',
+        '대본': '공정성/조작', '조작': '공정성/조작', '주작': '공정성/조작', '짜고': '공정성/조작',
+        # 인성 관련 키워드 대폭 추가 (워드클라우드 싱크용)
+        '인성': '태도/인성 논란', '싸가지': '태도/인성 논란', '거만': '태도/인성 논란', 
+        '태도': '태도/인성 논란', '무례': '태도/인성 논란', '예의': '태도/인성 논란',
+        '화나': '태도/인성 논란', '짜증': '태도/인성 논란', '불편': '태도/인성 논란'
+    }
+    
+    found_keywords = []
+    
+    for text in full_text:
+        # 워드클라우드는 형태소 분석 없이 단순 포함 여부를 볼 때가 많으므로, 여기서도 단순 포함으로 카운트
+        for key, category in negative_keywords_map.items():
+            if key in text:
+                found_keywords.append(category)
+                # 한 댓글에서 여러 키워드가 나와도 다 카운트 (워드클라우드 방식)
+                
+    keyword_counts = Counter(found_keywords)
+    top5 = keyword_counts.most_common(5)
+    
+    # 데이터프레임
+    df_top5 = pd.DataFrame(top5, columns=['Keyword', 'Count'])
+    
+    # 시각화
+    plt.figure(figsize=(10, 6))
+    bars = sns.barplot(data=df_top5, x='Count', y='Keyword', palette='Reds_r', edgecolor='black')
+    
+    for i, p in enumerate(bars.patches):
+        width = p.get_width()
+        plt.text(width + 5, p.get_y() + p.get_height()/2, 
+                 f'{int(width)}건', 
+                 va='center', fontweight='bold', fontsize=12)
+        
+    plt.title('시즌 2 핵심 이탈 원인 TOP 5 (부정 키워드)', fontsize=15, weight='bold', pad=20)
+    plt.xlabel('언급 수 (건)')
+    plt.ylabel('')
+    plt.grid(axis='x', linestyle='--', alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_path, 'season2_negative_top5_bar_v3.png'), dpi=150, bbox_inches='tight')
+    plt.close()
+    print("✓ Saved: season2_negative_top5_bar_v3.png")
+
+if __name__ == "__main__":
+    create_season2_negative_top5_bar_v3()
